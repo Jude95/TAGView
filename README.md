@@ -1,6 +1,6 @@
 # TAGView 标签View
 轻松实现标签效果。
-![image](image.jpg)
+![image](image.png)
 
 #依赖
 `compile 'com.jude:tagview:1.0.1'`
