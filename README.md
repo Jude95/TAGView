@@ -5,7 +5,7 @@ Simple android view to display colorful tag efficiently.
 #Dependency
 `compile 'com.jude:tagview:1.0.1'`
 
-#usage
+#Usage
 
         <com.jude.tagview.TAGView
             android:layout_width="wrap_content"
