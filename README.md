@@ -15,7 +15,7 @@
             app:tag_color="#9d55b8"             //背景颜色  默认红色
             app:tag_text_color="#ffffff"        //文字颜色  默认白色
             app:tag_text_size="13sp"            //文字大小  默认13sp
-            app:tag_padding="2dp"               //内容与边缘的距离  默认4dp
+            app:tag_padding="2dp"               //内容与边缘的距离  默认2dp
             app:tag_radius="4dp"                //背景圆角半径      默认4dp
             />
 
