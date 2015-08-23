@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TAGView">
+        <attr name="tag_icon" format="reference"/>
+        <attr name="tag_text" format="string"/>
+        <attr name="tag_text_color" format="color"/>
+        <attr name="tag_color" format="color"/>
+        <attr name="tag_radius" format="dimension"/>
+    </declare-styleable>
+
+</resources>
