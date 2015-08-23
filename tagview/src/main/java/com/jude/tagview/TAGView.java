@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -52,16 +53,35 @@ public class TAGView extends FrameLayout {
         try {
             setIcon(a.getResourceId(R.styleable.TAGView_tag_icon, 0));
             setText(a.getString(R.styleable.TAGView_tag_text));
-            setTextColor(a.getColor(R.styleable.TAGView_tag_text_color,Color.WHITE));
+            setTextColor(a.getColor(R.styleable.TAGView_tag_text_color, Color.WHITE));
             mPaint.setColor(a.getColor(R.styleable.TAGView_tag_color, Color.RED));
             radius = a.getDimension(R.styleable.TAGView_tag_radius, dip2px(getContext(),2));
+            int padding = (int) a.getDimension(R.styleable.TAGView_tag_padding, dip2px(getContext(), 4));
+            mContainer.setPadding(padding, padding, padding, padding);
+
+            int textSize = (int) a.getDimensionPixelSize(R.styleable.TAGView_tag_text_size, dip2px(getContext(), 13));
+            mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
         }finally {
             a.recycle();
         }
     }
 
+    public void setTextSize(int sp){
+        mTextView.setTextSize(sp);
+    }
+
+    public void setPadding(int padding){
+        mContainer.setPadding(padding,padding,padding,padding);
+    }
+
     public void setText(String text){
-        mTextView.setText(text);
+        if (text==null||text.isEmpty()){
+            mTextView.setVisibility(GONE);
+        }
+        else{
+            mTextView.setVisibility(VISIBLE);
+            mTextView.setText(text);
+        }
     }
     public void setTextColor(int color){
         mTextView.setTextColor(color);
@@ -88,6 +108,7 @@ public class TAGView extends FrameLayout {
         canvas.drawRoundRect(new RectF(0, 0, getWidth(), getHeight()), radius, radius, mPaint);
         super.draw(canvas);
     }
+
 
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)

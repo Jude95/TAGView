@@ -4,8 +4,10 @@
         <attr name="tag_icon" format="reference"/>
         <attr name="tag_text" format="string"/>
         <attr name="tag_text_color" format="color"/>
+        <attr name="tag_text_size" format="dimension"/>
         <attr name="tag_color" format="color"/>
         <attr name="tag_radius" format="dimension"/>
+        <attr name="tag_padding" format="dimension"/>
     </declare-styleable>
 
 </resources>

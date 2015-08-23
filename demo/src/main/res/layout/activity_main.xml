@@ -2,18 +2,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+        <com.jude.tagview.TAGView
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:tag_icon="@drawable/ic_doctor"
+            app:tag_color="#9d55b8"
+            app:tag_text="Doctor"
+            app:tag_radius="4dp"/>
+        <com.jude.tagview.TAGView
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:tag_icon="@drawable/ic_teacher"
+            app:tag_color="#ea8010"
+            app:tag_text="Teacher"
+            app:tag_radius="4dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
 
-    <com.jude.tagview.TAGView
-        android:layout_width="64dp"
-        android:layout_height="32dp"
-        app:tag_color="#ff9066"
-        app:tag_text="FUCK"
-        app:tag_radius="8dp"/>
+        <com.jude.tagview.TAGView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tag_text_size="10sp"
+            app:tag_color="#ff9066"
+            app:tag_text="FUCK"
+            app:tag_radius="4dp"/>
+
+        <com.jude.tagview.TAGView
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
+            app:tag_color="#ff9066"
+            app:tag_text="STOP"
+            app:tag_radius="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <com.jude.tagview.TAGView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tag_color="#56abe4"
+            app:tag_radius="4dp"
+            app:tag_icon="@drawable/ic_male"/>
+        <com.jude.tagview.TAGView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            app:tag_color="#ee317c"
+            app:tag_icon="@drawable/ic_female"
+            app:tag_radius="4dp"/>
+
+        <com.jude.tagview.TAGView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="16dp"
+            app:tag_padding="0dp"
+            app:tag_color="#56abe4"
+            app:tag_radius="4dp"
+            app:tag_icon="@drawable/ic_male"/>
+        <com.jude.tagview.TAGView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="16dp"
+            app:tag_padding="0dp"
+            app:tag_color="#ee317c"
+            app:tag_icon="@drawable/ic_female"
+            app:tag_radius="4dp"/>
+    </LinearLayout>
 
 </LinearLayout>
