@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tool="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:padding="2dp">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:maxWidth="16dp"
-        android:layout_margin="2dp"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
@@ -19,12 +13,12 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
+        android:layout_gravity="center"
         tool:text="大三"
-        android:layout_margin="2dp"
         android:textSize="13sp"
         android:textColor="@android:color/white"
         />
 
-</LinearLayout>
+</merge>

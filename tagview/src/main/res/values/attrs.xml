@@ -7,7 +7,7 @@
         <attr name="tag_text_size" format="dimension"/>
         <attr name="tag_color" format="color"/>
         <attr name="tag_radius" format="dimension"/>
-        <attr name="tag_padding" format="dimension"/>
+        <attr name="tag_divider" format="dimension"/>
     </declare-styleable>
 
 </resources>
