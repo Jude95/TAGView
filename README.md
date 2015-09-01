@@ -3,7 +3,7 @@ Simple android view to display colorful tag efficiently.
 ![image](image.png)
 
 #Dependency
-`compile 'com.jude:tagview:1.0.2'`
+`compile 'com.jude:tagview:1.0.3'`
 
 #Usage
 

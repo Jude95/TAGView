@@ -8,6 +8,12 @@
         <attr name="tag_color" format="color"/>
         <attr name="tag_radius" format="dimension"/>
         <attr name="tag_divider" format="dimension"/>
+        <attr name="tag_padding" format="dimension"/>
+        <attr name="tag_padding_top" format="dimension"/>
+        <attr name="tag_padding_bottom" format="dimension"/>
+        <attr name="tag_padding_left" format="dimension"/>
+        <attr name="tag_padding_right" format="dimension"/>
+
     </declare-styleable>
 
 </resources>

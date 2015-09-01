@@ -5,7 +5,7 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp">
@@ -32,7 +32,7 @@
             app:tag_color="#ea8010"
             app:tag_text="Driver"
             app:tag_radius="4dp"/>
-    </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -124,10 +124,25 @@
         <com.jude.tagview.TAGView
             android:id="@+id/tag_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="10dp"
+            app:tag_icon="@drawable/ic_doctor"
             app:tag_color="#ff9066"
             app:tag_text="Yes"
             app:tag_radius="4dp"/>
+
+        <com.jude.tagview.TAGView
+            android:id="@+id/tag_certification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_alignTop="@+id/name"
+            android:layout_alignBottom="@+id/name"
+            android:layout_toRightOf="@+id/name"
+            app:tag_icon="@drawable/ic_certification"
+            app:tag_text="认证"
+            app:tag_divider="0dp"
+            app:tag_color="#ff9900"
+            />
     </LinearLayout>
 
 </LinearLayout>
