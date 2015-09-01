@@ -10,6 +10,40 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp">
         <com.jude.tagview.TAGView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:tag_icon="@drawable/ic_doctor"
+            app:tag_color="#9d55b8"
+            app:tag_text="Doctor"
+            app:tag_radius="4dp"/>
+        <com.jude.tagview.TAGView
+            android:id="@+id/t2"
+            android:layout_toRightOf="@+id/t1"
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:tag_icon="@drawable/ic_teacher"
+            app:tag_color="#ea8010"
+            app:tag_text="Teacher"
+            app:tag_radius="4dp"/>
+        <com.jude.tagview.TAGView
+            android:id="@+id/t3"
+            android:layout_toRightOf="@+id/t2"
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:tag_icon="@drawable/ic_driver"
+            app:tag_color="#ea8010"
+            app:tag_text="Driver"
+            app:tag_image_width="32dp"
+            app:tag_radius="4dp"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+        <com.jude.tagview.TAGView
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             app:tag_icon="@drawable/ic_doctor"
@@ -32,7 +66,7 @@
             app:tag_color="#ea8010"
             app:tag_text="Driver"
             app:tag_radius="4dp"/>
-    </RelativeLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -132,12 +166,9 @@
 
         <com.jude.tagview.TAGView
             android:id="@+id/tag_certification"
-            android:layout_width="wrap_content"
+            android:layout_width="72dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_alignTop="@+id/name"
-            android:layout_alignBottom="@+id/name"
-            android:layout_toRightOf="@+id/name"
             app:tag_icon="@drawable/ic_certification"
             app:tag_text="认证"
             app:tag_divider="0dp"

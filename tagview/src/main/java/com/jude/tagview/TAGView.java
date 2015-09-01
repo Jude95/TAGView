@@ -7,25 +7,26 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
  * Created by Mr.Jude on 2015/8/15.
  */
-public class TAGView extends FrameLayout {
+public class TAGView extends ViewGroup {
 
     private ImageView mImageView;
     private TextView mTextView;
+
 
     private float radius;
 
     private Paint mPaint;
 
+    private int imageWidth;
     private int dividerWidth;
     private int paddingLeft;
     private int paddingTop;
@@ -59,7 +60,7 @@ public class TAGView extends FrameLayout {
             setTextColor(a.getColor(R.styleable.TAGView_tag_text_color, Color.WHITE));
             mPaint.setColor(a.getColor(R.styleable.TAGView_tag_color, Color.RED));
             radius = a.getDimension(R.styleable.TAGView_tag_radius, dip2px(2));
-
+            imageWidth = (int) a.getDimension(R.styleable.TAGView_tag_image_width, dip2px(16));
             dividerWidth = (int) a.getDimension(R.styleable.TAGView_tag_divider, dip2px(2));
             paddingLeft=paddingRight=paddingTop=paddingBottom
                     =(int) a.getDimension(R.styleable.TAGView_tag_padding, dip2px(2));
@@ -113,7 +114,6 @@ public class TAGView extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        Log.i("TAGView", "onMeasure");
         //super.onMeasure(widthMeasureSpec,heightMeasureSpec);
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int widthModel = MeasureSpec.getMode(widthMeasureSpec);
@@ -123,48 +123,116 @@ public class TAGView extends FrameLayout {
 
         int inWidth = width-paddingLeft-paddingRight;
         int inHeight = height-paddingTop-paddingBottom;
+
+//        switch (widthModel){
+//            case MeasureSpec.EXACTLY:
+//                Log.i("TAGView",mTextView.getText()+" widthModel"+" EXACTLY"+"  width"+width);
+//                break;
+//            case MeasureSpec.UNSPECIFIED:
+//                Log.i("TAGView",mTextView.getText()+" widthModel"+" UNSPECIFIED"+"  width"+width);
+//                break;
+//            case MeasureSpec.AT_MOST:
+//                Log.i("TAGView",mTextView.getText()+" widthModel"+" AT_MOST"+"  width"+width);
+//                break;
+//        }
+//        switch (heightModel){
+//            case MeasureSpec.EXACTLY:
+//                Log.i("TAGView",mTextView.getText()+" heightModel"+" EXACTLY"+"  height"+height);
+//                break;
+//            case MeasureSpec.UNSPECIFIED:
+//                Log.i("TAGView",mTextView.getText()+" heightModel"+" UNSPECIFIED"+"  height"+height);
+//                break;
+//            case MeasureSpec.AT_MOST:
+//                Log.i("TAGView",mTextView.getText()+" heightModel"+" AT_MOST"+"  height"+height);
+//                break;
+//        }
+
         if (mImageView.getVisibility()==VISIBLE)
         mImageView.measure(
-                MeasureSpec.makeMeasureSpec(inWidth,widthModel),
-                MeasureSpec.makeMeasureSpec(inHeight,heightModel)
+                MeasureSpec.makeMeasureSpec(imageWidth,MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec(inHeight,MeasureSpec.UNSPECIFIED)
         );
-        //int tw = width - mImageView.getMeasuredWidth() - ((mTextView.getVisibility()==VISIBLE && mImageView.getVisibility()==VISIBLE)?dividerWidth:0);
         if (mTextView.getVisibility()==VISIBLE)
         mTextView.measure(
-                MeasureSpec.makeMeasureSpec(inWidth,widthModel),
-                MeasureSpec.makeMeasureSpec(inHeight,heightModel)
+                MeasureSpec.makeMeasureSpec(inWidth,MeasureSpec.UNSPECIFIED),
+                MeasureSpec.makeMeasureSpec(inHeight,MeasureSpec.UNSPECIFIED)
         );
-        Log.i("TAGView", "!TEXT "+ mTextView.getText() + " tw" + mTextView.getMeasuredWidth() + " th" + mTextView.getMeasuredHeight());
-        int widthTotal = mImageView.getMeasuredWidth()+mTextView.getMeasuredWidth()+paddingLeft+paddingRight+((mTextView.getVisibility()==VISIBLE && mImageView.getVisibility()==VISIBLE)?dividerWidth:0);
-        int heightTotal = Math.max(mImageView.getMeasuredHeight(),mTextView.getMeasuredHeight())+paddingTop+paddingBottom;
 
-        if (widthModel != MeasureSpec.EXACTLY){
-            int rewidth = ((widthModel == MeasureSpec.AT_MOST)?Math.min(widthTotal, width):widthTotal);
-            int reheight = ((heightModel == MeasureSpec.AT_MOST)?Math.min(heightTotal, height):heightTotal);
-            Log.i("TAGView","!EXACTLY"+" w"+rewidth+" h"+reheight);
-            setMeasuredDimension(rewidth, reheight);
-        }else {
-            Log.i("TAGView","EXACTLY"+" w"+width+" h"+height);
-            setMeasuredDimension(width,height);
+//        Log.i("TAGView",mTextView.getText()+" I width"+mImageView.getMeasuredWidth()+" I height"+mImageView.getMeasuredHeight()+" T width"+mTextView.getMeasuredWidth()+" T height"+mTextView.getMeasuredHeight());
+
+        int widthTotal = mImageView.getMeasuredWidth()+
+                mTextView.getMeasuredWidth()+
+                paddingLeft+
+                paddingRight+
+                ((mTextView.getVisibility()==VISIBLE && mImageView.getVisibility()==VISIBLE)?dividerWidth:0);
+        int heightTotal = Math.max(mImageView.getMeasuredHeight(), mTextView.getMeasuredHeight())+paddingTop+paddingBottom;
+
+
+
+        int reheight = height;
+        int rewidth = width;
+        switch (heightModel){
+            case MeasureSpec.EXACTLY:
+                reheight = height;
+                break;
+            case MeasureSpec.AT_MOST:
+                reheight = Math.min(heightTotal, height);
+                break;
+            case MeasureSpec.UNSPECIFIED:
+                reheight = heightTotal;
+                break;
         }
+        switch (widthModel){
+            case MeasureSpec.EXACTLY:
+                rewidth = width;
+                break;
+            case MeasureSpec.AT_MOST:
+                rewidth = Math.min(widthTotal, width);
+                break;
+            case MeasureSpec.UNSPECIFIED:
+                rewidth = heightTotal;
+                break;
+        }
+        setMeasuredDimension(rewidth, reheight);
     }
+
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         int width = right - left,height = bottom - top;
+//        Log.i("TAGView", mTextView.getText() + "  Layout W" + width);
         int l = paddingLeft,r = width-paddingRight,t = paddingTop,b = height-paddingBottom;
-        mImageView.layout(l, t, l + mImageView.getMeasuredWidth(), b);
+        int centerVertical = (b+t)/2 , centerHorizontal = (l+r)/2;
 
 
 
         if (mTextView.getVisibility()==VISIBLE&&mImageView.getVisibility()==VISIBLE){
-            Log.i("TAGView", "!TEXTLayout " + mTextView.getText() + " l" + l+mImageView.getMeasuredWidth()+dividerWidth +" t"+t+" r"+r+" b"+b);
+            int divider = Math.max(r - l - mImageView.getMeasuredWidth() - mTextView.getMeasuredWidth() - dividerWidth, 0)/3;
 
-            mTextView.layout(l+mImageView.getMeasuredWidth()+dividerWidth,t,r,b);
+            mImageView.layout(
+                    l+divider,
+                    centerVertical-mImageView.getMeasuredHeight()/2,
+                    l+divider+mImageView.getMeasuredWidth(),
+                    centerVertical+mImageView.getMeasuredHeight()/2);
+
+            mTextView.layout(
+                    l+divider*2+mImageView.getMeasuredWidth()+dividerWidth,
+                    centerVertical-mTextView.getMeasuredHeight()/2,
+                    r-divider,
+                    centerVertical+mTextView.getMeasuredHeight()/2);
         }else {
-            Log.i("TAGView", "!TEXTLayout " + mTextView.getText() + " l" + l+mImageView.getMeasuredWidth() +" t"+t+" r"+r+" b"+b);
 
-            mTextView.layout(l+mImageView.getMeasuredWidth(),t,r,b);
+            mImageView.layout(
+                    centerHorizontal-mImageView.getMeasuredWidth()/2,
+                    centerVertical-mImageView.getMeasuredHeight()/2,
+                    centerHorizontal+mImageView.getMeasuredWidth()/2,
+                    centerVertical+mImageView.getMeasuredHeight()/2);
+
+            mTextView.layout(
+                    centerHorizontal-mTextView.getMeasuredWidth()/2,
+                    centerVertical-mTextView.getMeasuredHeight()/2,
+                    centerHorizontal+mTextView.getMeasuredWidth()/2,
+                    centerVertical+mTextView.getMeasuredHeight()/2);
         }
 
     }
