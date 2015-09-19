@@ -49,6 +49,10 @@ public class TAGView extends ViewGroup {
     public void init(AttributeSet attrs){
         setWillNotDraw(false);
         mPaint = new Paint();
+        mPaint.setStrokeWidth(16);
+
+
+
         LayoutInflater.from(getContext()).inflate(R.layout.tag_view,this,true);
         mImageView = (ImageView) findViewById(R.id.icon);
         mTextView = (TextView) findViewById(R.id.text);
