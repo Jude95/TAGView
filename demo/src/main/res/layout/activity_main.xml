@@ -15,7 +15,7 @@
             android:layout_height="32dp"
             app:tag_icon="@drawable/ic_doctor"
             app:tag_color="#9d55b8"
-            app:tag_text="Doctor"
+            app:tag_text="Scientist"
             app:tag_radius="4dp"/>
         <com.jude.tagview.TAGView
             android:id="@+id/t2"
@@ -46,25 +46,32 @@
         <com.jude.tagview.TAGView
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            app:tag_icon="@drawable/ic_doctor"
+            app:tag_icon="@drawable/ic_law"
             app:tag_color="#9d55b8"
+            app:tag_text_color="#272636"
+            app:tag_text="Attorney"
+            app:tag_radius="4dp"
+            app:tag_stroke_width="2dp"/>
+        <com.jude.tagview.TAGView
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:tag_icon="@drawable/ic_factory"
+            app:tag_color="#ea8010"
+            app:tag_text_color="#272636"
+            app:tag_text="Worker"
+            app:tag_stroke_width="2dp"
+            app:tag_radius="4dp"/>
+        <com.jude.tagview.TAGView
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:tag_icon="@drawable/ic_hospital"
+            app:tag_text_color="#272636"
+
+            app:tag_stroke_width="2dp"
+            app:tag_color="#ea8010"
             app:tag_text="Doctor"
-            app:tag_radius="4dp"/>
-        <com.jude.tagview.TAGView
-            android:layout_marginLeft="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            app:tag_icon="@drawable/ic_teacher"
-            app:tag_color="#ea8010"
-            app:tag_text="Teacher"
-            app:tag_radius="4dp"/>
-        <com.jude.tagview.TAGView
-            android:layout_marginLeft="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            app:tag_icon="@drawable/ic_driver"
-            app:tag_color="#ea8010"
-            app:tag_text="Driver"
             app:tag_radius="4dp"/>
     </LinearLayout>
     <LinearLayout

@@ -5,6 +5,7 @@
         <attr name="tag_text" format="string"/>
         <attr name="tag_text_color" format="color"/>
         <attr name="tag_text_size" format="dimension"/>
+        <attr name="tag_stroke_width" format="dimension"/>
         <attr name="tag_color" format="color"/>
         <attr name="tag_radius" format="dimension"/>
         <attr name="tag_image_width" format="dimension"/>

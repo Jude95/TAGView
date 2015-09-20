@@ -3,13 +3,14 @@ Simple android view to display colorful tag efficiently.
 ![image](image.png)
 
 #Dependency
-`compile 'com.jude:tagview:2.0.0'`
+`compile 'com.jude:tagview:2.1.0'`
 
 #Usage
 
         <com.jude.tagview.TAGView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:tag_stroke_width="2dp"          //0 for background mode.other for border mode.
             app:tag_radius="4dp"                //radius for the background.default 4dp.
             app:tag_icon="@drawable/ic_doctor"  //If you don't set,it just like a label
             app:tag_text="TAG"                  //If you don't set,it just like a icon with background.
