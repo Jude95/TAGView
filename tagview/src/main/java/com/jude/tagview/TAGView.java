@@ -84,6 +84,11 @@ public class TAGView extends ViewGroup {
         }
     }
 
+    public void setImageWidth(int width){
+        imageWidth = width;
+        invalidate();
+    }
+
     public void setAsCircle(){
         asCircle = true;
         invalidate();
@@ -280,4 +285,5 @@ public class TAGView extends ViewGroup {
         final float scale = getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+
 }
