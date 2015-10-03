@@ -12,6 +12,7 @@ Simple android view to display colorful tag efficiently.
             android:layout_height="wrap_content"
             app:tag_stroke_width="2dp"          //0 for background mode.other for border mode.
             app:tag_radius="4dp"                //radius for the background.default 4dp.
+            app:tag_as_circle="true"            //show as circle
             app:tag_icon="@drawable/ic_doctor"  //If you don't set,it just like a label
             app:tag_text="TAG"                  //If you don't set,it just like a icon with background.
             app:tag_color="#9d55b8"             //background color of the TAGView.
