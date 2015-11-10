@@ -34,7 +34,7 @@ ext {
     siteUrl = 'https://github.com/Jude95/TAGView'
     gitUrl = 'https://github.com/Jude95/TAGView'
 
-    libraryVersion = '2.1.3'//版本号
+    libraryVersion = '2.1.4'//版本号
     libraryName = 'tagview'//项目名字，没什么用
     libraryDescription = 'A tool for Android'//项目描述，没什么用
 
