@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.android.debug.hv.ViewServer;
 import com.jude.tagview.TAGView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,8 +21,17 @@ private TAGView view;
                 view.setText("COOL");
             }
         });
-
+        ViewServer.get(this).addWindow(this);
     }
 
+    public void onDestroy() {
+        super.onDestroy();
+        ViewServer.get(this).removeWindow(this);
+    }
+
+    public void onResume() {
+        super.onResume();
+        ViewServer.get(this).setFocusedWindow(this);
+    }
 
 }

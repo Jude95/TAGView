@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -259,7 +258,6 @@ public class TAGView extends ViewGroup {
 
     @Override
     public void draw(Canvas canvas) {
-        Log.i("TAGView","能否透明"+canvas.isOpaque());
         canvas.drawRoundRect(new RectF(strokeWidth/2, strokeWidth/2, getWidth()-strokeWidth/2, getHeight()-strokeWidth/2), radius, radius, mPaint);
         super.draw(canvas);
     }

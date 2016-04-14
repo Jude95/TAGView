@@ -182,5 +182,10 @@
             app:tag_color="#ff9900"
             />
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_margin="16dp"
+        android:text="comparison"/>
 
 </LinearLayout>
