@@ -102,7 +102,7 @@
             app:tag_text_size="25sp"
             app:tag_color="#ff9066"
             app:tag_text="Go"
-            app:tag_radius="24dp"/>
+            app:tag_as_circle="true"/>
 
     </LinearLayout>
 
@@ -178,8 +178,6 @@
             android:layout_marginLeft="16dp"
             app:tag_icon="@drawable/ic_certification"
             app:tag_text="认证"
-            app:tag_divider="0dp"
-            app:tag_color="#ff9900"
             />
     </LinearLayout>
     <TextView

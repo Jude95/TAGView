@@ -33,6 +33,7 @@ public class TAGView extends ViewGroup {
     private int paddingBottom;
     private int paddingRight;
     private int strokeWidth;
+    private boolean asCircle;
 
     public TAGView(Context context) {
         this(context,null);
@@ -50,7 +51,7 @@ public class TAGView extends ViewGroup {
     public void init(AttributeSet attrs){
         setWillNotDraw(false);
         mPaint = new Paint();
-
+        mPaint.setAntiAlias(true);
         LayoutInflater.from(getContext()).inflate(R.layout.tag_view,this,true);
         mImageView = (ImageView) findViewById(R.id.icon);
         mTextView = (TextView) findViewById(R.id.text);
@@ -71,7 +72,7 @@ public class TAGView extends ViewGroup {
             paddingRight = (int) a.getDimension(R.styleable.TAGView_tag_padding_right, dip2px(4));
             paddingTop = (int) a.getDimension(R.styleable.TAGView_tag_padding_top, dip2px(2));
             paddingBottom = (int) a.getDimension(R.styleable.TAGView_tag_padding_bottom, dip2px(2));
-
+            asCircle = a.getBoolean(R.styleable.TAGView_tag_as_circle,false);
             strokeWidth = (int) a.getDimension(R.styleable.TAGView_tag_stroke_width, dip2px(0));
             setStrokeWidth(strokeWidth);
 
@@ -83,8 +84,23 @@ public class TAGView extends ViewGroup {
         }
     }
 
+    public void setImageWidth(int width){
+        imageWidth = width;
+        invalidate();
+    }
+
+    public void setAsCircle(){
+        asCircle = true;
+        invalidate();
+    }
+
+    public void setRadius(int radius){
+        this.radius = radius;
+        invalidate();
+    }
+
     public void setStrokeWidth(int width){
-        if (strokeWidth != 0){
+        if (width != 0){
             mPaint.setStrokeWidth(width);
             mPaint.setStyle(Paint.Style.STROKE);
             mPaint.setStrokeJoin(Paint.Join.ROUND);
@@ -92,6 +108,7 @@ public class TAGView extends ViewGroup {
         }else{
             mPaint.setStyle(Paint.Style.FILL);
         }
+        invalidate();
     }
 
     public void setTextSize(int sp){
@@ -254,11 +271,13 @@ public class TAGView extends ViewGroup {
     }
 
 
-
-
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawRoundRect(new RectF(strokeWidth/2, strokeWidth/2, getWidth()-strokeWidth/2, getHeight()-strokeWidth/2), radius, radius, mPaint);
+        if (asCircle){
+            canvas.drawArc(new RectF(strokeWidth/2, strokeWidth/2, getWidth()-strokeWidth/2, getHeight()-strokeWidth/2),0,360,true,mPaint);
+        }else {
+            canvas.drawRoundRect(new RectF(strokeWidth/2, strokeWidth/2, getWidth()-strokeWidth/2, getHeight()-strokeWidth/2), radius, radius, mPaint);
+        }
         super.draw(canvas);
     }
 
@@ -266,4 +285,5 @@ public class TAGView extends ViewGroup {
         final float scale = getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+
 }

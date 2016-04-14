@@ -15,7 +15,7 @@
         <attr name="tag_padding_bottom" format="dimension"/>
         <attr name="tag_padding_left" format="dimension"/>
         <attr name="tag_padding_right" format="dimension"/>
-
+        <attr name="tag_as_circle" format="boolean"/>
     </declare-styleable>
 
 </resources>
