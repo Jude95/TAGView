@@ -84,6 +84,20 @@ public class TAGView extends ViewGroup {
         }
     }
 
+    @Override
+    public void setPadding(int left, int top, int right, int bottom) {
+        paddingLeft = left;
+        paddingRight = right;
+        paddingTop = top;
+        paddingBottom = bottom;
+        requestLayout();
+    }
+
+    public void setDividerWidth(int width){
+        dividerWidth = width;
+        requestLayout();
+    }
+
     public void setImageWidth(int width){
         imageWidth = width;
         invalidate();
