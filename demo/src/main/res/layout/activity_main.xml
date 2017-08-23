@@ -171,19 +171,57 @@
             app:tag_text="Yes"
             app:tag_radius="4dp"/>
 
-        <com.jude.tagview.TAGView
-            android:id="@+id/tag_certification"
-            android:layout_width="72dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            app:tag_icon="@drawable/ic_certification"
-            app:tag_text="认证"
-            />
+
     </LinearLayout>
-    <TextView
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:layout_margin="16dp"
-        android:text="comparison"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+
+        <com.jude.tagview.TAGView
+            android:layout_width="72dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
+            app:tag_stroke_width="2dp"
+            app:tag_text="认证"
+            app:tag_color="#aa7765"
+            app:tag_text_color="#aa7765"
+            app:tag_radius="8dp"
+            />
+
+        <com.jude.tagview.TAGView
+            android:id="@+id/tag_certification_radius"
+            android:layout_width="72dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
+            app:tag_stroke_width="2dp"
+            app:tag_text="认证"
+            app:tag_color="#aa7765"
+            app:tag_text_color="#aa7765"
+            />
+
+        <com.jude.tagview.TAGView
+            android:id="@+id/tag_certification_stroke"
+            android:layout_width="72dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
+            app:tag_text="认证"
+            app:tag_color="#aa7765"
+            app:tag_text_color="#aa7765"
+            app:tag_radius="8dp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="horizontal"/>
 
 </LinearLayout>

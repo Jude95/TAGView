@@ -52,6 +52,7 @@ public class TAGView extends ViewGroup {
         setWillNotDraw(false);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         LayoutInflater.from(getContext()).inflate(R.layout.tag_view,this,true);
         mImageView = (ImageView) findViewById(R.id.icon);
         mTextView = (TextView) findViewById(R.id.text);
@@ -114,9 +115,10 @@ public class TAGView extends ViewGroup {
     }
 
     public void setStrokeWidth(int width){
-        if (width != 0){
-            mPaint.setStrokeWidth(width);
+        strokeWidth = width;
+        if (strokeWidth != 0){
             mPaint.setStyle(Paint.Style.STROKE);
+            mPaint.setStrokeWidth(strokeWidth);
             mPaint.setStrokeJoin(Paint.Join.ROUND);
             mPaint.setStrokeCap(Paint.Cap.ROUND);
         }else{
