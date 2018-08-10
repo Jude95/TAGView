@@ -29,10 +29,10 @@ Simple android view to display colorful tag efficiently.
 
 All properties in the xml can be set in the code.
 
-## License
+License
 -------
 
-    Copyright 2015 Jude
+    Copyright 2018 Jude
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
